@@ -1,0 +1,50 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}All news{% endblock title %}
+
+{% block content %}
+
+
+<!-- Перед таблицей добавим форму для поиска -->
+<form method="GET">
+    {{ filter.form }} <!-- Форму от фильтров за нас сделает django. А вот кнопку, увы придётся делать самому -->
+    <input type="submit" value="Найти">
+</form>
+
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Quantity
+        </th>
+    </thead>
+    {% for ArNews in filter.qs %} <!-- поменяем products на filter.qs, т. к. теперь мы забираем уже отобранную по каким-то параметрам информацию -->
+    <tr>
+        <td>
+            {{ ArNews.name|title }}
+        </td>
+        <td>
+            {{ ArNews.time|title }}
+        </td>
+        <td>
+            {{ ArNews.description }}
+        </td>
+        <td>
+            {{ ArNews.category }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if is_paginated %}
+
+{% endif %}
+{% endblock content %}

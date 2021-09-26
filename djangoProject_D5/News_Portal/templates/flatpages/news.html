@@ -1,0 +1,53 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+AllNews
+{% endblock title %}
+
+
+{% block content %}
+
+<h1>Все новости</h1>
+
+<table>
+  <thead>
+    <th>
+      <h5>Заголовок</h5>
+    </th>
+    <th>
+    </th>
+    <th>
+      <h5>Описание</h5>
+    </th>
+    <th>
+      <h5>Дата публикации</h5>
+    </th>
+  </thead>
+  {% for ArNews in news %} <!-- Для каждого товара будете генерироваться новая строчка, т. е. новый html-код. При этом сам цикл работает точно также, как и в Python. product — переменная цикла, т. е. наш товар, взятый из общего списка -->
+  <tr>
+    <td>
+      <a href="{% url 'news_update' ArNews.id %}"><u>Редактировать</u></a> <!-- добавим ссылку на редактирование товара-->
+      <a href="{% url 'news_delete' ArNews.id %}"><u> Удалить </u></a> <!-- добавим ссылку на удаление товара-->
+    </td>
+    <td>
+      {{ ArNews.category.name }}
+    </td>
+    <td>
+      {{ ArNews.description|truncatewords:50|Censor }} <!-- переделать в символы-->
+    </td>
+    <td>
+      {{ ArNews.time }}
+      {{ time_now|date:'M d Y' }}
+  </tr>
+  {% endfor %}
+</table>
+{% if is_paginated %}
+
+{% endif %}
+
+{% endblock content %}
+
+
+
