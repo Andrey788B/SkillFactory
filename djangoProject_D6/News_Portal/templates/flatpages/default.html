@@ -1,0 +1,123 @@
+{% load static %}
+{% load contact_tags %}
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>{% block head_title %}{% endblock head_title %}</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Django flatpages — {% block title %} {% endblock title %}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'bootstrap.css' %}" rel="stylesheet">
+
+   <title>footer</title>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Django flatpages</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/search/">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/adnews/">Add News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/login/">Registration</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/news/index/">Personal Area</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+       {% block content %}
+       {{ flatpage.content }}
+       {% endblock content %}
+      </div>
+    </div>
+
+
+  <div class="container">
+      <section style="height:80px;"></section>
+      <div class="row" style="text-align:center;"></div>
+
+      <!----------- Footer ------------>
+      <footer class="footer-bs">
+          <div class="row">
+              <div class="col-md-3 footer-brand animated fadeInLeft">
+                  <h6>Logo</h6>
+                  <p>Anything that can be considered a good sign will be considered by him.</p>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvr48LzTomUT5sEYh0WV4tL71NCcsf1NvIcQ&usqp=CAU" alt="html" width="150" height="147">
+                  <p>© 2021 All rights reserved</p>
+              </div>
+
+              <div class="col-md-4 footer-nav animated fadeInUp">
+                  <h6>Menu </h6>
+                  <div class="col-md-8">
+                      <ul class="list">
+                          <li><a href="#">About Us</a></li>
+                          <li><a href="#">Contacts</a></li>
+                          <li><a href="#">Terms & Condition</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="col-md-2 footer-social animated fadeInDown">
+                  <h6>Follow Us</h6>
+                  <ul>
+                      <li><a href="#">Facebook</a></li>
+                      <li><a href="#">Twitter</a></li>
+                      <li><a href="#">Instagram</a></li>
+                      <li><a href="#">RSS</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-md-3 footer-ns animated fadeInRight">
+                  {% contact_form %}
+              </div>
+          </div>
+      </footer>
+      <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="/">Earl Borovikov A.P.</a></p></section>
+  </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'jquery.slim.min.js' %}"></script>
+  <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,11 @@
+<h6>Newsletter</h6>
+
+<p class="editContent">Knowing what things should be serves as an intelligent person;
+                       the knowledge of what things really are provides an experienced person;
+                       the knowledge of how to change them for the better tests a person of genius.</p>
+
+<form action="{% url 'appointment' %}" method="post" class="w3layouts-newsletter">
+    {% csrf_token %}
+    {{ contact_form }}
+    <button class="btn1 btn"><span class="fa fa-paper-plane-o" aria-hidden="true"></span></button>
+</form>

@@ -1,0 +1,11 @@
+ <h6>Newsletter</h6>
+ <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+ <p>
+ <div class="input-group">
+     {% csrf_token %}
+     {{ contact_form }}
+     <span class="input-group-btn">
+         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+     </span>
+ </div><!-- /input-group -->
+ </p>
